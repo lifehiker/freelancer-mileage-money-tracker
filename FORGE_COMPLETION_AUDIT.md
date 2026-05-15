@@ -230,7 +230,7 @@ This audit maps the major PRD requirements to concrete implementation files, rou
   - `next.config.ts`
 - Container startup schema sync:
   - `Dockerfile`
-    - uses `./node_modules/.bin/prisma db push --skip-generate` before `node server.js`
+    - uses `npx --no-install prisma db push --skip-generate` before `node server.js`
 
 ## Verified In This Session
 - `npm install`
