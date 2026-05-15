@@ -228,12 +228,19 @@ This audit maps the major PRD requirements to concrete implementation files, rou
   - `.dockerignore`
 - Standalone Next build output:
   - `next.config.ts`
+- Container startup schema sync:
+  - `Dockerfile`
+    - uses `./node_modules/.bin/prisma db push --skip-generate` before `node server.js`
 
 ## Verified In This Session
 - `npm install`
 - `npm run build`
 - `npm run lint`
 - `npm run dev`
+- Standalone runtime boot path:
+  - copied `.next/standalone`, `.next/static`, `public`, `prisma`, and runtime `node_modules` into a temp directory
+  - ran Prisma schema sync successfully
+  - launched `server.js` on `127.0.0.1:3111` and confirmed `GET /` returned `200 OK`
 - Public route smoke tests:
   - `/`
   - `/pricing`

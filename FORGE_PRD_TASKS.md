@@ -120,13 +120,16 @@ Implementation order: foundation -> data/auth -> core workflows -> secondary wor
 - `[x]` Docker build inputs only copy directories that exist in this repo.
 - `[x]` Environment variable documentation in `.env.example` was reviewed.
 - `[x]` `HUMAN_INPUT_NEEDED.md` exists for external credentials and deferred integrations.
+- `[x]` Docker startup now uses the packaged Prisma CLI entrypoint instead of an internal module path.
 - `[~]` `docker build .` could not be executed to completion because the current environment cannot access `/var/run/docker.sock`.
 
 ## Verification
 - `[x]` Run `npm run build` and fix all errors.
+- `[x]` Run `npm run lint`.
 - `[x]` Start dev server and verify it runs without crashing.
 - `[x]` Smoke-test primary routes.
 - `[x]` Test main forms, buttons, navigation, and export flows.
+- `[x]` Standalone server startup path was verified locally by copying the standalone output, static assets, public assets, Prisma schema, and runtime `node_modules`, then running Prisma `db push` plus `node server.js`.
 - `[~]` Visual review was performed via rendered markup/CSS inspection; a true browser screenshot pass is not available in this CLI-only environment.
 - `[x]` Update this checklist after each major phase.
 - `[x]` Create `FORGE_COMPLETION_AUDIT.md` mapping PRD requirements to concrete implementation.
